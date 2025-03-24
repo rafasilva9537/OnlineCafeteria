@@ -5,7 +5,7 @@ import { colors } from "@/constants/colors";
 import { HomeSvg, ProfileSvg, StarSvg } from "@/constants/icons";
 import { SvgProps } from "react-native-svg";
 
-type TabIconProps = {
+interface TabIconProps {
     focused: boolean, 
     title: string, 
     SvgIcon: React.FC<SvgProps> // used to show 'imported svg' dynamically 

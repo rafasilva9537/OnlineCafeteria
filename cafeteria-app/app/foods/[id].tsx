@@ -3,11 +3,11 @@ import React from "react";
 import { Text, View } from "react-native";
 
 const FoodDetails = () => {
-    const id = useLocalSearchParams();
+    const { id } = useLocalSearchParams();
 
     return (
         <View>
-            <Text>Here is food</Text>
+            <Text>Here is id: {id}</Text>
         </View>
     );
 }

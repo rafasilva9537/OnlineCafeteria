@@ -11,7 +11,7 @@ const client = {
 const Profile = () => {
     return (
         <View>
-            <Text>Testing here</Text>
+            <Text>Profiles here</Text>
         </View>
     );
 }
