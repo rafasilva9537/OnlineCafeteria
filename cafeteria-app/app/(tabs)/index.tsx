@@ -1,23 +1,16 @@
 import { Link } from "expo-router";
 import React from "react";
-import { FlatList, Text, View, StyleSheet, Image, ScrollView, TouchableOpacity } from "react-native";
+import { FlatList, Text, View, StyleSheet, Image, TouchableOpacity } from "react-native";
 import foods from "@/mock_data/foods"
 import { colors } from "@/constants/colors";
+import Food from "@/interfaces/food";
 
-interface Food {
-  id: number,
-  name: string,
-  image: string,
-  description: string,
-  price: number
-}
-
-const FoodBox = ({id, name, image, price}: Food) =>{ 
+const FoodBox = ({id, title, image, price}: Food) =>{ 
   return (
     <Link style={styles.foodBoxContainer} href={`/foods/${id}`} asChild>
       <TouchableOpacity>
         <Image source={ {uri: image} } style={styles.foodImage}/>
-        <Text style={styles.foodTitle}>{name}</Text>
+        <Text style={styles.foodTitle}>{title}</Text>
       </TouchableOpacity>
     </Link>
   );
@@ -39,7 +32,7 @@ export default function Index() {
   );
 }
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
   homepageContainer: {
     margin: 0,
     padding: 0,
