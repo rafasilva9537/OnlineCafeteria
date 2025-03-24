@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     tabIcon: {
         gap: 0,
         alignItems: "center",
-        minWidth: 125,
+        minWidth: 115,
         minHeight: 12,
         borderRadius: 50,
         top: "20%",

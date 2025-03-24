@@ -14,8 +14,8 @@ interface Food {
 
 const FoodBox = ({id, name, image, price}: Food) =>{ 
   return (
-    <Link href={`/foods/${id}`} asChild>
-      <TouchableOpacity style={{ width: "100%" }}>
+    <Link style={styles.foodBoxContainer} href={`/foods/${id}`} asChild>
+      <TouchableOpacity>
         <Image source={ {uri: image} } style={styles.foodImage}/>
         <Text style={styles.foodTitle}>{name}</Text>
       </TouchableOpacity>
@@ -26,13 +26,14 @@ const FoodBox = ({id, name, image, price}: Food) =>{
 export default function Index() {
   return (
     <View style={styles.homepageContainer}>
-      <FlatList style={styles.foodList}
+      <FlatList
         ListHeaderComponent={<Text style={styles.homeTitle}>Lanchonete Online</Text>}
         data= {foods}
         renderItem={({item}) => <FoodBox {... item}/>}
         keyExtractor={(item) => item.id.toString()}
-        numColumns={1}
-        contentContainerStyle={styles.foodContainer}
+        numColumns={2}
+        contentContainerStyle={styles.foodList}
+        columnWrapperStyle={styles.foodRowContainer}
       />
     </View>
   );
@@ -40,32 +41,36 @@ export default function Index() {
 
 const styles = StyleSheet.create({
   homepageContainer: {
-    justifyContent: "flex-start",
-    alignItems: "center",
     margin: 0,
     padding: 0,
     flex: 1,
-    backgroundColor: colors.background
+    backgroundColor: colors.background,
   },
   homeTitle: {
     alignSelf: "center",
     marginTop: 10,
+    marginBottom: 10,
     fontSize: 30,
     fontWeight: "bold",
   },
   foodList: {
     width: "100%",
   },
-  foodContainer: {
-    width: "60%",
-    alignSelf: "center",
+  foodRowContainer: {
+    width: "100%",
     gap: 10,
+    justifyContent: "center",
+    paddingBottom: 15
+  },
+  foodBoxContainer: {
+    width: "45%",
   },
   foodTitle: {
-    fontSize: 17,
+    fontSize: 16,
   },
   foodImage: {
-    width: "100%" ,
-    height: 100
+    width: "100%",
+    height: 100,
+    borderRadius: 5
   }
 });
