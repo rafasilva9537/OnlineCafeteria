@@ -1,4 +1,4 @@
-import { useLocalSearchParams } from "expo-router";
+import { useLocalSearchParams, router } from "expo-router";
 import React from "react";
 import { Text, View, ScrollView, StyleSheet, Image, Button } from "react-native";
 import Food from "@/interfaces/food";
@@ -27,7 +27,7 @@ const FoodPage = () => {
         <>
         <FoodDetails food={foodData}/>
         <View>
-            <Button title="Comprar" color={ colors.accent } />
+            <Button title="Comprar" onPress={() => router.navigate(`/foods/${id}/pursache`)} color={ colors.accent } />
         </View>
         </>
     );

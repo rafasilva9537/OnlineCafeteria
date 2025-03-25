@@ -11,5 +11,9 @@ export default function RootLayout() {
       name="foods/[id]"
       options={{ headerShown: false }}
     />
+    <Stack.Screen 
+      name="foods/[id]/pursache"
+      options={{ headerShown: false }}
+    />
   </Stack>
 }
