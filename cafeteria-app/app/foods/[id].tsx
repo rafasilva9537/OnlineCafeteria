@@ -27,7 +27,7 @@ const FoodPage = () => {
         <>
         <FoodDetails food={foodData}/>
         <View>
-            <Button title="Adicionar ao Carrinho" color={ colors.accent } />
+            <Button title="Comprar" color={ colors.accent } />
         </View>
         </>
     );

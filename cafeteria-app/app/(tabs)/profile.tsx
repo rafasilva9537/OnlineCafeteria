@@ -10,14 +10,20 @@ const client = {
     photo: require("@/media/images/bird.jpeg"),
 }
 
+const ProfileText = ({children}: any) => {
+    return (
+        <Text style={styles.profileText}>{children}</Text>
+    );
+}
+
 const Profile = () => {
     return (
         <View style={styles.container}>
             <Image source={client.photo} style={styles.profilePhoto} />
             <View style={styles.profileInfo}>
-                <Text>Nome: {client.firsName} {client.lastName}</Text>
-                <Text>Email: {client.email}</Text>
-                <Text>Celular: {client.phone}</Text>
+                <ProfileText>Nome: {client.firsName} {client.lastName}</ProfileText>
+                <ProfileText>Email: {client.email}</ProfileText>
+                <ProfileText>Celular: {client.phone}</ProfileText>
             </View>
         </View>
     );
@@ -27,16 +33,20 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: "center",
-        padding: 10,
-        backgroundColor: colors
+        padding: 20,
+        backgroundColor: colors.background
     },
     profilePhoto: {
         width: 250,
         height: 250,
-        borderRadius: 200
+        borderRadius: 200,
+        marginBottom: 20
+    },
+    profileText: {
+        fontSize: 20,
     },
     profileInfo: {
-
+        alignItems: "flex-start"
     }
 });
 
