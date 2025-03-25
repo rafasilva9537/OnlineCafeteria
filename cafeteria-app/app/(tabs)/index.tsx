@@ -21,6 +21,7 @@ export default function Index() {
     <View style={styles.homepageContainer}>
       <FlatList
         ListHeaderComponent={<Text style={styles.homeTitle}>Lanchonete Online</Text>}
+        ListHeaderComponentStyle={{ backgroundColor: colors.accent, marginBottom: 15 }}
         data= {foods}
         renderItem={({item}) => <FoodBox {... item}/>}
         keyExtractor={(item) => item.id.toString()}
