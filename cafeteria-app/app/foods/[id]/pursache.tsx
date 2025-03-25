@@ -7,6 +7,12 @@ import { colors } from "@/constants/colors";
 
 // TODO: mudar local da página de compra, pois será implementado carrinho de compras, com múltiplos items
 
+const PursacheText = ({children}: any) => {
+    return (
+        <Text style={styles.text}>{children}</Text>
+    );
+}
+
 interface FoodContainerProps {
     food: Food,
 }
@@ -14,20 +20,24 @@ interface FoodContainerProps {
 const FoodContainer = ({food}: FoodContainerProps) => {
     return (
         <View style={styles.container}>
-            <Text>Resumo da Compra</Text>
+            <PursacheText>Resumo da Compra</PursacheText>
             <View style={styles.itemsContainer}>
-                <Text>Items: </Text>
-                <View>
+                <PursacheText>Items: </PursacheText>
+                <View style={{flexDirection: "row", gap: 5}}>
                     <Image source={ {uri: food.image} } style={styles.foodImage}/>
+                    <View>
+                        <PursacheText>{food.title}</PursacheText>
+                        <PursacheText>R$ {food.price}</PursacheText>
+                    </View>
                 </View>
             </View>
             <View style={styles.singleInfoContainer}>
-                <Text>Quantidade:</Text>
-                <Text>1</Text>
+                <PursacheText>Quantidade Total:</PursacheText>
+                <PursacheText>1</PursacheText>
             </View>
             <View style={styles.singleInfoContainer}>
-                <Text>Valor total</Text>
-                <Text>R$ {food.price.toFixed(2).replace(".", ",")}</Text>
+                <PursacheText style={styles.text}>Valor total:</PursacheText>
+                <PursacheText>R$ {food.price.toFixed(2).replace(".", ",")}</PursacheText>
             </View>
         </View>
     );
@@ -49,10 +59,11 @@ const styles = StyleSheet.create({
         alignItems: "center"
     },
     itemsContainer: {
-        width: "70%",
-        borderWidth: 2,
+        width: "90%",
+        borderWidth: 1,
         justifyContent: "space-between",
-        marginBottom: 30,
+        marginBottom: 20,
+        padding: 10
     },
     foodImage: {
         width: 60,
@@ -61,8 +72,11 @@ const styles = StyleSheet.create({
     singleInfoContainer: {
         flexDirection: "row",
         justifyContent: "space-between",
-        width: "70%",
-        borderWidth: 2
+        width: "90%",
+        borderWidth: 1,
+    },
+    text: {
+        fontSize: 20
     }
 });
 
